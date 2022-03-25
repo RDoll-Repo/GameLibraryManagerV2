@@ -1,0 +1,113 @@
+# Game Library Manager V2 API Spec
+----
+This API exists to decouple the front end of the Game Library Manager (henceforce referred to as GLM) from the front-end. The first version of this software was written in in VBNET with SQL integration in late 2020. The application was built with the frontend as a Windows Forms app that was deeply coupled with its SQL-based backend. This deep coupling made it very constly to implement new features, such as adding new genres or consoles I didn't account for in the original implementation. In this remake of the application, I hope to achieve decoupling of the stack via this API.
+
+## API Resources
+----
+These are the resources that the frontend will be able to access. They are interactable as to make the Game schema extensible. 
+
+* **Genre**: A genre represents the classification of a game into its gameplay genre. It will have a one to many relationship to the game resource.
+
+* **Console**: The release platform. It will have a one-to-many relationship with games as a game can only exist on one console. It is important to note that while games do have multiple-platform releases, games in this context refer to an entry in the user's collection. 
+
+* **Game**: The game resource is a composite of the other two resources (Genre and Software) as well as attributes such as title, format, average time to complete, release year, etc.
+
+## Data Tables
+----
+Proposed data tables within the data store
+
+### Game
+```
+GameID - Guid (PK)
+Title - String
+Status - Enumified String
+ConsoleID - Guid (FK Console)
+Format - Enumified String
+Genre - Guid (FK Genre)
+AverageLength - Int 
+YearOfRelease - Int
+LoggedAt - DateTime
+FinishedAt - DateTime
+Notes - String
+```
+
+### Console
+```
+ConsoleID - Guid
+Console - String
+```
+
+### Genre
+```
+GenreID - Guid
+Genre - String
+```
+
+##Data Models
+----
+These definitions are reflective of the models to be used when constructing the data layer of the API. No fields are optional. 
+
+### Game
+```
+GameID - Guid
+Title - String
+Status - Status
+Console - String
+Format - Format
+Genre - String
+AverageLength - Int
+Year of Release - Int
+LoggedAt - DateTime
+CompletedAt - DateTime
+Notes - String
+```
+
+### Enum Status
+```
+Unfinished
+Playing
+Finished
+```
+
+### Enum Format
+```
+Digital
+Physical
+Special Edition
+```
+
+### Console
+```
+ConsoleID - Guid
+Console - String
+```
+
+### Genre
+```
+GenreID - Guid
+Genre - String
+```
+
+##Endpoints
+----
+
+
+
+### Template
+---
+Request:
+```
+METHOD /root/params
+```
+Body: (none or ->)
+```
+stuff
+```
+
+Response - 200 OK
+```
+stuff
+```
+
+Error Codes:
+404 Not Found - reason
