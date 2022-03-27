@@ -16,14 +16,17 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+int test = 42;
 
-app.UseAuthorization();
 
-app.MapControllers();
+// app.UseHttpsRedirection();
 
-System.Console.WriteLine("Hello");
+// app.UseAuthorization();
 
-app.Run();
+// app.MapControllers();
+
+// System.Console.WriteLine("Hello");
+
+// app.Run();
 
 
