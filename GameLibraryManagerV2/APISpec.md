@@ -44,7 +44,7 @@ GenreID - Guid
 Genre - String
 ```
 
-##Data Models
+## Data Models
 ----
 These definitions are reflective of the models to be used when constructing the data layer of the API. No fields are optional. 
 
@@ -89,7 +89,7 @@ GenreID - Guid
 Genre - String
 ```
 
-##Endpoints
+## Endpoints
 ----
 ### Library
 ---
