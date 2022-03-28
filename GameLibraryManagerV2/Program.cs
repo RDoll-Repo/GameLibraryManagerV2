@@ -16,8 +16,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-int test = 42;
-
 
 // app.UseHttpsRedirection();
 
